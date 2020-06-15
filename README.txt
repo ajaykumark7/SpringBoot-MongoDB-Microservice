@@ -4,7 +4,7 @@ How to structure a Spring Boot project: https://docs.spring.io/spring-boot/docs/
 
 Startup steps(coding):
 1. From initializr - add Lombok, Web, MongoDB
-2. Create PACKAGES - one each, for controller, service etc (according to https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-structuring-your-code)
+2. Create PACKAGES - one each, for controller, service, repository etc (according to https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html#using-boot-structuring-your-code)
 3. Create interfaces for service, repo classes (to enable loose coupling)
 4. Pass the configuration parameters through application.properties (Make sure that they accept configurable values from environmental variables, which then accepts the value from the docker-compose file)
 
