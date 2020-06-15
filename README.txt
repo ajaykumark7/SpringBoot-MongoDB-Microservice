@@ -9,9 +9,11 @@ Startup steps(coding):
 4. Pass the configuration parameters through application.properties (Make sure that they accept configurable values from environmental variables, which then accepts the value from the docker-compose file)
 
 Dockerising:
-4. build the project using command: sudo mvn install
-5. Write dockerfile for spring boot project and create image: https://spring.io/guides/gs/spring-boot-docker/
-6. When two or more containers need to be connected, use docker-compose. Write the docker-compose.yml file.
+4. Write dockerfile for spring boot project: https://spring.io/guides/gs/spring-boot-docker/ 
+5. When two or more containers need to be connected, use docker-compose. Write the docker-compose.yml file.
+6. Build the project and create fat JAR using command: sudo mvn install (will be created inside /target folder)
+7. If docker-compose accepts image instead of Dockerfile, build the docker image
+7. run "docker-compose up"
 
 Important points:
 1. Make sure to send the right response codes
