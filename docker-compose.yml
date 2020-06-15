@@ -1,0 +1,26 @@
+version: '3'
+services:
+  calculator-api:
+    #To freshly build a new image from Dockerfile each time docker-compose up is called, use the build option instead of image 
+    build: .
+    #image: "calculator-image"
+    ports:
+      - 8081:8081
+    environment:
+      - DB_PORT=27020
+      - DB_HOST=calculator-database
+    # depends_on tag ensures that the service starts only after mongo service has started
+    depends_on:
+      - calculator-database
+  calculator-database:
+    image: "mongo"
+    container_name: "calculator-database"
+    #this makes sure that the mongo service inside the container is started on port 27018
+    command: mongod --port 27020
+    volumes:
+      - ./data/db:/data/db
+    #Any value can be provided for the ports below and it would still work. Reason is that
+    #when docker-compose up is called, a docker network is created, containing all the services
+    #within it. Hence, all services in the network can directly access each other's ports without any exposing
+    ports:
+      - 27017:27018
